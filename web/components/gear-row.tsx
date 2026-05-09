@@ -1,22 +1,22 @@
-import { GearItem } from "@/types/types";
-import { Button } from "./ui/button";
-import { SquarePen, Trash} from "lucide-react";
+// import { GearItem } from "@/types/types";
+// import { Button } from "./ui/button";
+// import { SquarePen, Trash} from "lucide-react";
 
-type Props = {
-    item: GearItem
-    onEdit: (item: GearItem) => void
-    onDelete: (id: string) => void
-}
+// type Props = {
+//     item: GearItem
+//     onEdit: (item: GearItem) => void
+//     onDelete: (id: string) => void
+// }
 
-export default function GearRow({item, onEdit, onDelete}: Props) {
-    return (
-        <div>
-            {/* TODO: Finish off this component */}
-            <span>{item.name}</span>
-            <span>{item.weight}</span>
+// export default function GearRow({item, onEdit, onDelete}: Props) {
+//     return (
+//         <div>
+//             {/* TODO: Finish off this component */}
+//             <span>{item.name}</span>
+//             <span>{item.weight}</span>
 
-            <Button><SquarePen/></Button>
-            <Button><Trash/></Button>
-        </div>
-    );
-}
+//             <Button><SquarePen/></Button>
+//             <Button><Trash/></Button>
+//         </div>
+//     );
+// }

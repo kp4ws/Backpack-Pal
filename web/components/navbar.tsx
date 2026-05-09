@@ -3,6 +3,9 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+
+// TODO: Replace login buttons with Clerk Buttons
 
 export default function NavBar() {
   return (
@@ -19,16 +22,17 @@ export default function NavBar() {
 
         {/* DESKTOP NAVIGATION */}
         <div className="hidden md:flex items-center gap-3 md:gap-6">
-          <Link href="/login" className="text-white hover:text-emerald-200">
-            <Button size="lg" className="gap-2">
-              Login
-            </Button>
-          </Link>
-          <Link href="/register" className="text-white hover:text-emerald-200">
-            <Button size="lg" className="gap-2">
-              Register
-            </Button>
-          </Link>
+          <Show when="signed-out">
+            <SignInButton mode="modal">
+              <Button size="lg" className="gap-2">Login</Button>
+            </SignInButton>
+            <SignUpButton mode="modal">
+              <Button size="lg" className="gap-2">Register</Button>
+            </SignUpButton>
+          </Show>
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
         </div>
 
         {/* MOBILE Menu */}
@@ -40,20 +44,19 @@ export default function NavBar() {
           </SheetTrigger>
           <SheetContent className="bg-emerald-950 [&_button]:text-white">
             <div className="flex flex-col items-center gap-4 mt-8">
-              <Link
-                href="/login"
-                className="text-lg text-white hover:text-emerald-200"
-              >
-                Login
-              </Link>
-              <Link
-                href="/register"
-                className="text-lg text-white hover:text-emerald-200"
-              >
-                Register
-              </Link>
+              <Show when="signed-out">
+                <SignInButton mode="modal">
+                  <span className="text-lg text-white hover:text-emerald-200 cursor-pointer">Login</span>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <span className="text-lg text-white hover:text-emerald-200 cursor-pointer">Register</span>
+                </SignUpButton>
+              </Show>
+              <Show when="signed-in">
+                <UserButton />
+              </Show>
 
-              <hr />
+              <hr className="w-full border-emerald-800 my-2" />
 
               <Link
                 href="/trips"
@@ -82,8 +85,6 @@ export default function NavBar() {
         <Link href="/inventory" className="text-white hover:text-emerald-200">
           Inventory
         </Link>
-
-        {/* TODO: PROFILE (HIDDEN UNLESS LOGGED IN) */}
       </div>
     </nav>
   );

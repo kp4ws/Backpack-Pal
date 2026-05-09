@@ -14,7 +14,6 @@ class Settings(BaseSettings):
 
     #CLERK settings
     CLERK_SECRET_KEY: str
-    CLERK_JWT_KEY: str | None = None
     CLERK_AUTHORIZED_PARTIES: Annotated[list[str], NoDecode] = []
 
     @field_validator("DATABASE_URL")

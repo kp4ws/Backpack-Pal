@@ -7,16 +7,15 @@ export class BackpackPalDB extends Dexie {
     trip_items!: Table<TripItem>;
     categories!: Table<Category>;
 
-    // TODO: Need to finish filling out the constructor
     constructor() {
         super('BackpackPalDB');
         this.version(1).stores({
             gear_items: '++id, name, category_id',
-            trips: '',
-            trip_items: '',
-            categories: '',
-        })
+            trips: '++id, user_id, start_date',
+            trip_items: '++id, trip_id, gear_item_id',
+            categories: '++id, user_id, title',
+        });
     }
-};
+}
 
 export const db = new BackpackPalDB();

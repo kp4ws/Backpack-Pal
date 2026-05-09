@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Filter } from "lucide-react";
 import { useState, useEffect } from "react";
 
-import CategoryGroup from "@/components/category-group";
+// import CategoryGroup from "@/components/category-group";
 
 export default function InventoryPage() {
   const [loading, setLoading] = useState<boolean>(true);

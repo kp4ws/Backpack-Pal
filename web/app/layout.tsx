@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/navbar";
 import Providers from "@/components/providers";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       <html lang="en" className={cn("font-sans", inter.variable)}>
         <body className={`${inter.variable} antialiased`}>
           <Providers>
+            <Toaster richColors position="top-right" />
             <NavBar />
 
             <main className="bg-emerald-900">{children}</main>

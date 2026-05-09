@@ -1,0 +1,21 @@
+{
+    "name": "Backpack Pal",
+    "short_name": "TrailKit",
+    "description": "Strategic gear planning.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#064e3b",
+    "theme_color": "#064e3b",
+    "icons": [
+        {
+            "src": "TODO",
+            "sizes": "192x192",
+            "type": "TODO"
+        },
+        {
+            "src": "TODO",
+            "sizes": "512x512",
+            "type": "TODO"
+        }
+    ]
+}

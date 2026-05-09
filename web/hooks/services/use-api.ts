@@ -1,27 +1,35 @@
 import { useAuth } from "@clerk/nextjs";
+import { config } from "@/lib/config";
+import { toast } from "sonner";
+import { logger } from "@/lib/logger";
 
 export const useApi = () => {
-    const {getToken} = useAuth();
-    const baseURL = process.env.NEXT_PUBLIC_API_URL;
+  const { getToken } = useAuth();
+  const baseURL = config.api.baseUrl;
 
-    return async <T>(endpoint: string, options: RequestInit = {}): Promise<T> => {
-        const token = await getToken();
+  return async <T>(endpoint: string, options: RequestInit = {}): Promise<T> => {
+    const token = await getToken();
 
-        const response = await fetch(`${baseURL}${endpoint}`, {
-            ...options,
-            headers: {
-                ...options.headers,
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-        });
+    const response = await fetch(`${baseURL}${endpoint}`, {
+      ...options,
+      headers: {
+        ...options.headers,
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
 
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            throw new Error(errorData.message || "API Request Failed");
-        }
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      const errorMessage = errorData.detail || "API Request Failed";
 
-        const data = await response.json();
-        return data as T;
-    };
+      logger.error(`[API ${response.status}] ${endpoint}`, errorData);
+      toast.error(errorMessage);
+      
+      throw new Error(errorMessage);
+    }
+
+    const data = await response.json();
+    return data as T;
+  };
 };

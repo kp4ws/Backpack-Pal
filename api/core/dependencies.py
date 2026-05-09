@@ -31,7 +31,6 @@ async def get_current_user(
     request_state: RequestState = await clerk_client.authenticate_request_async(
         request,
         AuthenticateRequestOptions(
-            jwt_key=settings.CLERK_JWT_KEY,
             authorized_parties=settings.CLERK_AUTHORIZED_PARTIES,
             accepts_token=["session_token"],
         ),
