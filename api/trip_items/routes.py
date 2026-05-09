@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from sqlalchemy import select
-from api.auth.dependencies import DBSession, CurrentUser
+from api.core.dependencies import DBSession, CurrentUser
 from api.core.exceptions import raise_404
 from api.trips.models import Trip
 from api.trip_items.models import TripItem

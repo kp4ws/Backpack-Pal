@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from sqlalchemy.exc import IntegrityError
-from api.auth.dependencies import DBSession, CurrentUser
+from api.core.dependencies import DBSession, CurrentUser
 from api.users.schemas import UserResponse, UserUpdate
 from api.core.exceptions import raise_400, raise_409
 

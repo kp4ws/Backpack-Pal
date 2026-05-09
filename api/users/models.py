@@ -17,8 +17,8 @@ class User(Base, TimestampMixin):
     __tablename__ = "users"
 
     #Primary Key
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, index=True, default=uuid.uuid4)
-    clerk_id: Mapped[str] = mapped_column(String(255), unique=True, index=True)
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    clerk_id: Mapped[str] = mapped_column(String(255), unique=True)
 
     #User Attributes
     email: Mapped[str] = mapped_column(String(255), unique=True)

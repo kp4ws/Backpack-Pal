@@ -1,6 +1,6 @@
 "use client";
 
-export default function Trips() {
+export default function TripsPage() {
   return (
     <div>
       <header>

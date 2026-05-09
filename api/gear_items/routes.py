@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from sqlalchemy import select
-from api.auth.dependencies import DBSession, CurrentUser
+from api.core.dependencies import DBSession, CurrentUser
 from api.core.exceptions import raise_404
 from api.gear_items.models import GearItem
 from api.gear_items.schemas import GearItemResponse, GearItemCreate, GearItemUpdate

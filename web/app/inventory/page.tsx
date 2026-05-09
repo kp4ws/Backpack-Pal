@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 import CategoryGroup from "@/components/category-group";
 
-export default function Inventory() {
+export default function InventoryPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [filter, setFilter] = useState<string | null>(null); //TODO: Create FilterState for more advance filtering
   // const [categories, setCategories] = useState<>();

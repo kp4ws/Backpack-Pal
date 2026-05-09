@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
 import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="">
       {/* HERO SECTION */}

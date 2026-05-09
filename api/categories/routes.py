@@ -4,7 +4,7 @@ from sqlalchemy import select
 from api.categories.models import Category
 from api.categories.schemas import CategoryResponse, CategoryCreate, CategoryUpdate
 from api.core.exceptions import raise_404
-from api.auth.dependencies import DBSession, CurrentUser
+from api.core.dependencies import DBSession, CurrentUser
 import uuid
 
 router = APIRouter()
