@@ -38,7 +38,7 @@ async def get_current_user(
     )
 
     if not request_state.is_signed_in:
-        raise_401(request_state.reason or "Could not validate credentials")
+        raise_401("Could not validate credentials")
     
     clerk_id: str = request_state.payload.get("sub")
     
@@ -65,7 +65,7 @@ async def get_current_user(
             ).scalar_one_or_none()
 
     if not user or not user.is_active:
-        raise_401("User not found or inactive")
+        raise_401("Could not validate credentials")
     
     return user
 
