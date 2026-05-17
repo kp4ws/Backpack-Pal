@@ -2,7 +2,6 @@ import {components} from "@/types/schema"
 
 //Users
 export type User = components["schemas"]["UserResponse"]
-export type UserCreate = components["schemas"]["UserCreate"]
 export type UserUpdate = components["schemas"]["UserUpdate"]
 
 //Categories
